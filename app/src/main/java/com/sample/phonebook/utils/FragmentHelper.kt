@@ -26,7 +26,7 @@ class FragmentHelper {
          * @param frgmt Fragment
          * @param tag optional tag name for the fragment
          */
-        fun addToBackStackAndAdd(
+        fun addToBackStackAndReplace(
             mgr: FragmentManager,
             id: Int,
             frgmt: Fragment,
