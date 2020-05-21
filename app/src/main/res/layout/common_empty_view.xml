@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="baseViewModel"
+            type="com.sample.phonebook.common.viewmodel.BaseViewModel" />
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@android:color/white"
+        android:text="@{baseViewModel.errorMessage}" />
+</layout>

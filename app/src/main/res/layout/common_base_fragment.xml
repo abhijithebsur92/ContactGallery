@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="baseViewModel"
+            type="com.sample.phonebook.common.viewmodel.BaseViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/header_view"
+            layout="@layout/common_header_view"
+            android:visibility="@{baseViewModel.showHeaderView? View.VISIBLE: View.GONE}"
+            bind:baseViewModel="@{baseViewModel}" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <FrameLayout
+                android:id="@+id/content_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/blue"
+                android:clipChildren="false"
+                android:visibility="@{baseViewModel.showContentView? View.VISIBLE: View.GONE}" />
+
+            <include
+                android:id="@+id/progress_view"
+                layout="@layout/common_progress_view"
+                android:visibility="@{baseViewModel.showProgressView? View.VISIBLE: View.GONE}"
+                bind:baseViewModel="@{baseViewModel}" />
+
+            <include
+                android:id="@+id/empty_view"
+                layout="@layout/common_empty_view"
+                android:visibility="@{baseViewModel.showEmptyView? View.VISIBLE: View.GONE}"
+                bind:baseViewModel="@{baseViewModel}" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+</layout>

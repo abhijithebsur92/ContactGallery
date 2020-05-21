@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="baseViewModel"
+            type="com.sample.phonebook.common.viewmodel.BaseViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dimen_20"
+        android:paddingRight="@dimen/dimen_20">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{baseViewModel.headerTitle}"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{baseViewModel.headerSubTitle}"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="11sp"
+            android:visibility="@{baseViewModel.getShowHeaderSubTitle() ? View.VISIBLE: View.GONE}" />
+
+    </LinearLayout>
+</layout>
